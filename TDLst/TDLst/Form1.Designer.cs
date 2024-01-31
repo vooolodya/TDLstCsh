@@ -28,14 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.menuPanel = new System.Windows.Forms.Panel();
             this.EmailField = new System.Windows.Forms.Label();
             this.FlnField = new System.Windows.Forms.Label();
             this.buttonSearch = new System.Windows.Forms.Button();
             this.searchField = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.dataGridView = new System.Windows.Forms.DataGridView();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.dataGridView = new System.Windows.Forms.DataGridView();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.CheckTaskStatus = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.TaskText = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.isImportantTask = new System.Windows.Forms.DataGridViewCheckBoxColumn();
@@ -46,12 +52,16 @@
             // 
             // menuPanel
             // 
+            this.menuPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.menuPanel.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.menuPanel.Controls.Add(this.label1);
+            this.menuPanel.Controls.Add(this.textBox2);
+            this.menuPanel.Controls.Add(this.panel2);
             this.menuPanel.Controls.Add(this.EmailField);
             this.menuPanel.Controls.Add(this.FlnField);
             this.menuPanel.Controls.Add(this.buttonSearch);
             this.menuPanel.Controls.Add(this.searchField);
-            this.menuPanel.Dock = System.Windows.Forms.DockStyle.Left;
             this.menuPanel.Location = new System.Drawing.Point(0, 0);
             this.menuPanel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.menuPanel.Name = "menuPanel";
@@ -83,7 +93,7 @@
             // buttonSearch
             // 
             this.buttonSearch.BackColor = System.Drawing.Color.PaleTurquoise;
-            this.buttonSearch.Location = new System.Drawing.Point(278, 116);
+            this.buttonSearch.Location = new System.Drawing.Point(314, 116);
             this.buttonSearch.Name = "buttonSearch";
             this.buttonSearch.Size = new System.Drawing.Size(34, 34);
             this.buttonSearch.TabIndex = 1;
@@ -97,7 +107,7 @@
             this.searchField.Location = new System.Drawing.Point(21, 116);
             this.searchField.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.searchField.Name = "searchField";
-            this.searchField.Size = new System.Drawing.Size(251, 34);
+            this.searchField.Size = new System.Drawing.Size(287, 34);
             this.searchField.TabIndex = 0;
             // 
             // panel1
@@ -106,20 +116,39 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackColor = System.Drawing.Color.CadetBlue;
+            this.panel1.Controls.Add(this.label3);
+            this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.textBox1);
             this.panel1.Controls.Add(this.dataGridView);
-            this.panel1.Location = new System.Drawing.Point(335, 0);
+            this.panel1.Location = new System.Drawing.Point(370, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(809, 692);
+            this.panel1.Size = new System.Drawing.Size(774, 692);
             this.panel1.TabIndex = 1;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox1.BackColor = System.Drawing.Color.PaleTurquoise;
+            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textBox1.ForeColor = System.Drawing.Color.DarkSlateGray;
+            this.textBox1.Location = new System.Drawing.Point(39, 605);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(702, 34);
+            this.textBox1.TabIndex = 4;
             // 
             // dataGridView
             // 
             this.dataGridView.AllowUserToResizeColumns = false;
             this.dataGridView.AllowUserToResizeRows = false;
-            this.dataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView.BackgroundColor = System.Drawing.Color.CadetBlue;
             this.dataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dataGridView.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.dataGridView.ColumnHeadersHeight = 29;
             this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dataGridView.ColumnHeadersVisible = false;
@@ -127,34 +156,90 @@
             this.CheckTaskStatus,
             this.TaskText,
             this.isImportantTask});
-            this.dataGridView.Location = new System.Drawing.Point(41, 43);
+            this.dataGridView.Location = new System.Drawing.Point(39, 71);
             this.dataGridView.Name = "dataGridView";
             this.dataGridView.RowHeadersVisible = false;
             this.dataGridView.RowHeadersWidth = 51;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.CadetBlue;
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.DarkSlateGray;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.dataGridView.RowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView.RowTemplate.Height = 24;
-            this.dataGridView.Size = new System.Drawing.Size(736, 540);
+            this.dataGridView.Size = new System.Drawing.Size(702, 514);
             this.dataGridView.TabIndex = 0;
             // 
-            // textBox1
+            // panel2
             // 
-            this.textBox1.BackColor = System.Drawing.Color.PaleTurquoise;
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBox1.Location = new System.Drawing.Point(41, 607);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(736, 34);
-            this.textBox1.TabIndex = 4;
+            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.panel2.BackColor = System.Drawing.Color.CadetBlue;
+            this.panel2.Location = new System.Drawing.Point(21, 181);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(327, 404);
+            this.panel2.TabIndex = 4;
+            // 
+            // textBox2
+            // 
+            this.textBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.textBox2.BackColor = System.Drawing.Color.PaleTurquoise;
+            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textBox2.ForeColor = System.Drawing.Color.DarkSlateGray;
+            this.textBox2.Location = new System.Drawing.Point(21, 607);
+            this.textBox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(327, 34);
+            this.textBox2.TabIndex = 5;
+            // 
+            // label1
+            // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.PaleTurquoise;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label1.ForeColor = System.Drawing.Color.DarkSlateGray;
+            this.label1.Location = new System.Drawing.Point(309, 610);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(27, 29);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "+";
+            // 
+            // label2
+            // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.PaleTurquoise;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label2.ForeColor = System.Drawing.Color.DarkSlateGray;
+            this.label2.Location = new System.Drawing.Point(705, 607);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(27, 29);
+            this.label2.TabIndex = 7;
+            this.label2.Text = "+";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label3.ForeColor = System.Drawing.Color.DarkSlateGray;
+            this.label3.Location = new System.Drawing.Point(44, 21);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(139, 29);
+            this.label3.TabIndex = 7;
+            this.label3.Text = "Cgbcj pfdlfx";
             // 
             // CheckTaskStatus
             // 
+            this.CheckTaskStatus.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.CheckTaskStatus.FillWeight = 79.24468F;
             this.CheckTaskStatus.HeaderText = "";
             this.CheckTaskStatus.MinimumWidth = 15;
             this.CheckTaskStatus.Name = "CheckTaskStatus";
+            this.CheckTaskStatus.Width = 25;
             // 
             // TaskText
             // 
+            this.TaskText.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.TaskText.FillWeight = 180.6483F;
             this.TaskText.HeaderText = "";
             this.TaskText.MinimumWidth = 6;
@@ -166,6 +251,7 @@
             this.isImportantTask.HeaderText = "";
             this.isImportantTask.MinimumWidth = 6;
             this.isImportantTask.Name = "isImportantTask";
+            this.isImportantTask.Width = 45;
             // 
             // Form1
             // 
@@ -198,6 +284,11 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.DataGridView dataGridView;
         private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DataGridViewCheckBoxColumn CheckTaskStatus;
         private System.Windows.Forms.DataGridViewTextBoxColumn TaskText;
         private System.Windows.Forms.DataGridViewCheckBoxColumn isImportantTask;

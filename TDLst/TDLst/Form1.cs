@@ -16,7 +16,7 @@ namespace TDLst
         public Form1()
         {
             InitializeComponent();
-            Form1StartSize();
+            //Form1StartSize();
         }
 
         private void Form1StartSize()
