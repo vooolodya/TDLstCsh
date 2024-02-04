@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ServiceStack;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -31,6 +32,18 @@ namespace TDLst
         private void Form1_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void Label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Label2_Click(object sender, EventArgs e)
+        {
+            dGVListTasks.Rows.Add(false, taskField.Text);
+            taskField.Text = string.Empty;
+             
         }
     }
 }
