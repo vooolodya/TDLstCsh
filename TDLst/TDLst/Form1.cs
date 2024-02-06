@@ -1,32 +1,20 @@
-﻿using ServiceStack;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System;
 using System.Windows.Forms;
+using System.Data;
+using System.Data.SqlClient;
+using System.Configuration;
+
 
 namespace TDLst
 {
     public partial class Form1 : Form
     {
+        private string connecctionString = ConfigurationManager.ConnectionStrings["TDLstDataBase"].ConnectionString;
+        private SqlConnection sqlConnection = null;
+
         public Form1()
         {
             InitializeComponent();
-            //Form1StartSize();
-        }
-
-        private void Form1StartSize()
-        {
-            double k = menuPanel.Width;
-            menuPanel.Width = Convert.ToInt32(SystemParameters.FullPrimaryScreenWidth * 0.25);
-            k = k / menuPanel.Width;
-
-            menuPanel.Width = Convert.ToInt32(menuPanel.Width * k);
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -34,16 +22,34 @@ namespace TDLst
 
         }
 
-        private void Label1_Click(object sender, EventArgs e)
+        private void AddListTaskButton_Click(object sender, EventArgs e)
         {
-
+            if (ListTaskField.Text != "")
+            {
+                DGVListOfLists.Rows.Add(ListTaskField.Text, ListTaskField.Text);
+                ListTaskField.Text = string.Empty;
+            }
         }
 
-        private void Label2_Click(object sender, EventArgs e)
+        private void AddTaskIntoGroupButton_Click(object sender, EventArgs e)
         {
-            dGVListTasks.Rows.Add(false, taskField.Text);
-            taskField.Text = string.Empty;
-             
+            if (TaskField.Text != "")
+            {
+                DGVListTasks.Rows.Add(false, TaskField.Text, false);
+                TaskField.Text = string.Empty;
+            }
+
+
+            sqlConnection = new SqlConnection(connecctionString);
+            sqlConnection.Open();
+
+            SqlDataAdapter sqlDataAdapter = null;
+            string command = string.Empty;
+
+            SqlCommand sqlCommand = new SqlCommand(command, sqlConnection);
+
+
+            sqlConnection.Close();
         }
     }
 }
