@@ -28,11 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             this.searchField = new System.Windows.Forms.TextBox();
             this.buttonSearch = new System.Windows.Forms.Button();
             this.NicknameField = new System.Windows.Forms.Label();
@@ -40,18 +40,19 @@
             this.ListTaskField = new System.Windows.Forms.TextBox();
             this.ListTaskButton = new System.Windows.Forms.Label();
             this.DGVListOfLists = new System.Windows.Forms.DataGridView();
-            this.ListName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.IDTaskList = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NameTasklist = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.menuPanel = new System.Windows.Forms.Panel();
             this.AddListTaskButton = new System.Windows.Forms.Label();
             this.DGVListTasks = new System.Windows.Forms.DataGridView();
+            this.CheckTaskStatus = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.TaskText = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.isImportantTask = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.TasklistID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TaskField = new System.Windows.Forms.TextBox();
             this.AddTaskIntoGroupButton = new System.Windows.Forms.Label();
             this.NameField = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.CheckTaskStatus = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.TaskText = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.isImportantTask = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.DGVListOfLists)).BeginInit();
             this.menuPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGVListTasks)).BeginInit();
@@ -128,17 +129,18 @@
             // 
             // DGVListOfLists
             // 
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.CadetBlue;
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.PaleTurquoise;
-            this.DGVListOfLists.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.DGVListOfLists.AllowUserToAddRows = false;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.CadetBlue;
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.PaleTurquoise;
+            this.DGVListOfLists.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle6;
             this.DGVListOfLists.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.DGVListOfLists.BackgroundColor = System.Drawing.Color.CadetBlue;
             this.DGVListOfLists.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DGVListOfLists.ColumnHeadersVisible = false;
             this.DGVListOfLists.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.ListName,
-            this.IDTaskList});
+            this.IDTaskList,
+            this.NameTasklist});
             this.DGVListOfLists.Location = new System.Drawing.Point(31, 181);
             this.DGVListOfLists.Name = "DGVListOfLists";
             this.DGVListOfLists.RowHeadersVisible = false;
@@ -146,32 +148,33 @@
             this.DGVListOfLists.RowTemplate.Height = 24;
             this.DGVListOfLists.Size = new System.Drawing.Size(353, 468);
             this.DGVListOfLists.TabIndex = 0;
-            // 
-            // ListName
-            // 
-            this.ListName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.CadetBlue;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.PaleTurquoise;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.CadetBlue;
-            this.ListName.DefaultCellStyle = dataGridViewCellStyle2;
-            this.ListName.HeaderText = "";
-            this.ListName.MaxInputLength = 32;
-            this.ListName.MinimumWidth = 8;
-            this.ListName.Name = "ListName";
-            this.ListName.ReadOnly = true;
+            this.DGVListOfLists.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGVListOfLists_CellContentClick);
             // 
             // IDTaskList
             // 
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.CadetBlue;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.PaleTurquoise;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.DarkSlateGray;
-            this.IDTaskList.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.CadetBlue;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.PaleTurquoise;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.DarkSlateGray;
+            this.IDTaskList.DefaultCellStyle = dataGridViewCellStyle7;
             this.IDTaskList.HeaderText = "";
             this.IDTaskList.MaxInputLength = 32;
             this.IDTaskList.MinimumWidth = 8;
             this.IDTaskList.Name = "IDTaskList";
             this.IDTaskList.Visible = false;
             this.IDTaskList.Width = 150;
+            // 
+            // NameTasklist
+            // 
+            this.NameTasklist.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.CadetBlue;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.PaleTurquoise;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.CadetBlue;
+            this.NameTasklist.DefaultCellStyle = dataGridViewCellStyle8;
+            this.NameTasklist.HeaderText = "";
+            this.NameTasklist.MaxInputLength = 50;
+            this.NameTasklist.MinimumWidth = 8;
+            this.NameTasklist.Name = "NameTasklist";
+            this.NameTasklist.ReadOnly = true;
             // 
             // menuPanel
             // 
@@ -224,27 +227,64 @@
             this.DGVListTasks.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.CheckTaskStatus,
             this.TaskText,
-            this.isImportantTask});
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DGVListTasks.DefaultCellStyle = dataGridViewCellStyle4;
+            this.isImportantTask,
+            this.TasklistID});
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DGVListTasks.DefaultCellStyle = dataGridViewCellStyle9;
             this.DGVListTasks.Location = new System.Drawing.Point(49, 116);
             this.DGVListTasks.Name = "DGVListTasks";
             this.DGVListTasks.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.DGVListTasks.RowHeadersVisible = false;
             this.DGVListTasks.RowHeadersWidth = 51;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.CadetBlue;
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.DarkSlateGray;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.DGVListTasks.RowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.CadetBlue;
+            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.DarkSlateGray;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.DGVListTasks.RowsDefaultCellStyle = dataGridViewCellStyle10;
             this.DGVListTasks.RowTemplate.Height = 24;
             this.DGVListTasks.Size = new System.Drawing.Size(892, 533);
             this.DGVListTasks.TabIndex = 0;
+            // 
+            // CheckTaskStatus
+            // 
+            this.CheckTaskStatus.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.CheckTaskStatus.FillWeight = 79.24468F;
+            this.CheckTaskStatus.HeaderText = "";
+            this.CheckTaskStatus.MinimumWidth = 15;
+            this.CheckTaskStatus.Name = "CheckTaskStatus";
+            this.CheckTaskStatus.Width = 25;
+            // 
+            // TaskText
+            // 
+            this.TaskText.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.TaskText.FillWeight = 180.6483F;
+            this.TaskText.HeaderText = "";
+            this.TaskText.MaxInputLength = 32;
+            this.TaskText.MinimumWidth = 6;
+            this.TaskText.Name = "TaskText";
+            // 
+            // isImportantTask
+            // 
+            this.isImportantTask.FillWeight = 40.10695F;
+            this.isImportantTask.HeaderText = "";
+            this.isImportantTask.MinimumWidth = 6;
+            this.isImportantTask.Name = "isImportantTask";
+            this.isImportantTask.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.isImportantTask.Width = 45;
+            // 
+            // TasklistID
+            // 
+            this.TasklistID.HeaderText = "";
+            this.TasklistID.MaxInputLength = 32;
+            this.TasklistID.MinimumWidth = 6;
+            this.TasklistID.Name = "TasklistID";
+            this.TasklistID.Visible = false;
+            this.TasklistID.Width = 125;
             // 
             // TaskField
             // 
@@ -281,7 +321,7 @@
             this.NameField.AutoSize = true;
             this.NameField.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.NameField.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.NameField.Location = new System.Drawing.Point(44, 21);
+            this.NameField.Location = new System.Drawing.Point(56, 61);
             this.NameField.Name = "NameField";
             this.NameField.Size = new System.Drawing.Size(139, 29);
             this.NameField.TabIndex = 7;
@@ -301,33 +341,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(974, 760);
             this.panel1.TabIndex = 1;
-            // 
-            // CheckTaskStatus
-            // 
-            this.CheckTaskStatus.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.CheckTaskStatus.FillWeight = 79.24468F;
-            this.CheckTaskStatus.HeaderText = "";
-            this.CheckTaskStatus.MinimumWidth = 15;
-            this.CheckTaskStatus.Name = "CheckTaskStatus";
-            this.CheckTaskStatus.Width = 25;
-            // 
-            // TaskText
-            // 
-            this.TaskText.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.TaskText.FillWeight = 180.6483F;
-            this.TaskText.HeaderText = "";
-            this.TaskText.MaxInputLength = 32;
-            this.TaskText.MinimumWidth = 6;
-            this.TaskText.Name = "TaskText";
-            // 
-            // isImportantTask
-            // 
-            this.isImportantTask.FillWeight = 40.10695F;
-            this.isImportantTask.HeaderText = "";
-            this.isImportantTask.MinimumWidth = 6;
-            this.isImportantTask.Name = "isImportantTask";
-            this.isImportantTask.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.isImportantTask.Width = 45;
             // 
             // Form1
             // 
@@ -368,11 +381,12 @@
         private System.Windows.Forms.Label NameField;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label AddListTaskButton;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ListName;
         private System.Windows.Forms.DataGridViewTextBoxColumn IDTaskList;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NameTasklist;
         private System.Windows.Forms.DataGridViewCheckBoxColumn CheckTaskStatus;
         private System.Windows.Forms.DataGridViewTextBoxColumn TaskText;
         private System.Windows.Forms.DataGridViewCheckBoxColumn isImportantTask;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TasklistID;
     }
 }
 
