@@ -29,7 +29,6 @@ C:\Users\Vooolodya\Documents\GitHub\TDLstCsh\TDLst\TDLst\bin\Debug\System.Numeri
 C:\Users\Vooolodya\Documents\GitHub\TDLstCsh\TDLst\TDLst\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
 C:\Users\Vooolodya\Documents\GitHub\TDLstCsh\TDLst\TDLst\bin\Debug\System.Threading.Tasks.Extensions.xml
 C:\Users\Vooolodya\Documents\GitHub\TDLstCsh\TDLst\TDLst\obj\Debug\TDLst.csproj.AssemblyReference.cache
-C:\Users\Vooolodya\Documents\GitHub\TDLstCsh\TDLst\TDLst\obj\Debug\TDLst.csproj.SuggestedBindingRedirects.cache
 C:\Users\Vooolodya\Documents\GitHub\TDLstCsh\TDLst\TDLst\obj\Debug\TDLst.Form1.resources
 C:\Users\Vooolodya\Documents\GitHub\TDLstCsh\TDLst\TDLst\obj\Debug\TDLst.Properties.Resources.resources
 C:\Users\Vooolodya\Documents\GitHub\TDLstCsh\TDLst\TDLst\obj\Debug\TDLst.csproj.GenerateResource.cache
@@ -77,3 +76,5 @@ D:\Programs\GitHub\TDLstCsh\TDLst\TDLst\obj\Debug\TDLst.csproj.CoreCompileInputs
 D:\Programs\GitHub\TDLstCsh\TDLst\TDLst\obj\Debug\TDLst.csproj.CopyComplete
 D:\Programs\GitHub\TDLstCsh\TDLst\TDLst\obj\Debug\TDLst.exe
 D:\Programs\GitHub\TDLstCsh\TDLst\TDLst\obj\Debug\TDLst.pdb
+C:\Users\Vooolodya\Documents\GitHub\TDLstCsh\TDLst\TDLst\bin\Debug\TDLstBD.mdf
+C:\Users\Vooolodya\Documents\GitHub\TDLstCsh\TDLst\TDLst\bin\Debug\TDLstBD_log.ldf
