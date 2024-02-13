@@ -2,18 +2,14 @@
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.Configuration;
-using System.Data.OleDb;
-using System.Windows;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
-using ServiceStack;
 using System.Data;
-using System.Data.SqlClient;
 
 
 namespace TDLst
 {
     public partial class Form1 : Form
     {
+
         private string connectionString = ConfigurationManager.ConnectionStrings["TDLstDataBase"].ConnectionString;
         private SqlConnection sqlConnection = null;
         private int idAutorithUser = 1;
@@ -40,8 +36,9 @@ namespace TDLst
             }
         }
 
-        private void LoadingListsData()
+        private void LoadListsData()
         {
+            DGVListOfLists.Rows.Add(0, "Избранное");
 
             string command = "SELECT IdTaskList, NameTasklist FROM ListOfTasklist WHERE idUser = @idAutorithUser";
             SqlParameter[] parameters = { new SqlParameter("@idAutorithUser", SqlDbType.Int) { Value = idAutorithUser } };
@@ -56,7 +53,7 @@ namespace TDLst
 
         }
 
-        private void LoadingUserData()
+        private void LoadUserData()
         {
             string command = "SELECT nickname, Login FROM LoginData WHERE IdUser = @idAutorithUser";
             SqlParameter[] parameters = { new SqlParameter("@idAutorithUser", SqlDbType.Int) { Value = idAutorithUser } };
@@ -72,9 +69,6 @@ namespace TDLst
 
 
         }
-
-
-
 
         private void AddListTaskButton_Click(object sender, EventArgs e)
         {
@@ -130,7 +124,7 @@ namespace TDLst
                     sqlCommand.ExecuteNonQuery();
                 }
             }
-            
+
             DGVListTasks.Rows.Add(false, TaskField.Text, false, idVwrTaskList);
             TaskField.Text = string.Empty;
         }
@@ -143,33 +137,36 @@ namespace TDLst
             object value = row.Cells[0].Value;
             string idTaskList = value.ToString();
 
-            using (SqlConnection sqlConnection = new SqlConnection(connectionString))
+            string command = "SELECT TaskState, Task, Importance FROM Tasks WHERE idTasklist = @idTasklist";
+            if (e.RowIndex == 0)
             {
-                sqlConnection.Open();
-
-                string command = "SELECT TaskState, Task, Importance FROM Tasks WHERE idTasklist = @idTasklist";
-                using (SqlCommand sqlCommand = new SqlCommand(command, sqlConnection))
-                {
-                    sqlCommand.Parameters.AddWithValue("@idTasklist", idTaskList);
-
-                    using (SqlDataReader SqlDataReader = sqlCommand.ExecuteReader())
-                    {
-                        while (SqlDataReader.Read())
-                        {
-                            DGVListTasks.Rows.Add(SqlDataReader["TaskState"], SqlDataReader["Task"], SqlDataReader["Importance"]);
-                        }
-                    }
-                }
+                command = "SELECT TaskState, Task, Importance FROM Tasks WHERE idTasklist = @idTasklist AND Importance = 1";
             }
 
+            SqlParameter[] parameters = { new SqlParameter("@idTasklist", SqlDbType.Int) { Value = idTaskList } };
+
+            DataTable dataTable = ExecuteQueryWithParameters(command, parameters);
+
+            foreach (DataRow rows in dataTable.Rows)
+            {
+                DGVListTasks.Rows.Add(rows["TaskState"], rows["Task"], rows["Importance"]);
+            }
+
+
+            //Загрузка названия списка
+            command = "SELECT NameTasklist FROM ListOfTasklist WHERE idTasklist = @idTasklist";
+            SqlParameter[] parameterS = { new SqlParameter("@idTasklist", SqlDbType.Int) { Value = idTaskList } };
+
+            DataTable dataTablE = ExecuteQueryWithParameters(command, parameterS);
+
+            if (dataTablE.Rows.Count > 0)
+            {
+                DataRow roW = dataTablE.Rows[0];
+                NameField.Text = roW["NameTasklist"].ToString();
+            }
+
+            DGVListTasks.ClearSelection();
         }
-
-        private void DGVListTasks_KeyDown(object sender, KeyEventArgs e)
-        {
-
-        }
-
-
 
         public Form1()
         {
@@ -178,8 +175,15 @@ namespace TDLst
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            LoadingUserData();
-            LoadingListsData();
+            LoadUserData();
+            LoadListsData();
         }
+
+        private void menuPanel_Click(object sender, EventArgs e)
+        {
+            DGVListOfLists.ClearSelection();
+            DGVListTasks.ClearSelection();
+        }
+
     }
 }

@@ -3563,9 +3563,34 @@
             Add additional logs to capture in Migration table
             </summary>
         </member>
+        <member name="P:ServiceStack.OrmLite.OrmLiteConfig.CommandTimeout">
+            <summary>
+            Gets or sets the wait time before terminating the attempt to execute a command and generating an error(in seconds).
+            </summary>
+        </member>
+        <member name="M:ServiceStack.OrmLite.OrmLiteConfig.SetCommandTimeout(System.Data.IDbConnection,System.Nullable{System.Int32})">
+            <summary>
+            Sets the wait time before terminating the attempt to execute a command and generating an error.
+            </summary>
+            <param name="db"></param>
+            <param name="commandTimeout">Command execution timeout(in seconds)</param>
+            <exception cref="T:System.NotImplementedException"></exception>
+        </member>
+        <member name="M:ServiceStack.OrmLite.OrmLiteConfig.SetCommandTimeout(System.Data.IDbConnection,System.Nullable{System.TimeSpan})">
+            <summary>
+            <inheritdoc cref="M:ServiceStack.OrmLite.OrmLiteConfig.SetCommandTimeout(System.Data.IDbConnection,System.Nullable{System.Int32})"/>
+            </summary>
+            <param name="db"></param>
+            <param name="commandTimeout">Command execution timeout</param>
+        </member>
         <member name="T:ServiceStack.OrmLite.OrmLiteConnection">
             <summary>
             Wrapper IDbConnection class to allow for connection sharing, mocking, etc.
+            </summary>
+        </member>
+        <member name="P:ServiceStack.OrmLite.OrmLiteConnection.CommandTimeout">
+            <summary>
+            Gets or sets the wait time before terminating the attempt to execute a command and generating an error(in seconds).
             </summary>
         </member>
         <member name="T:ServiceStack.OrmLite.OrmLiteConnectionFactory">
