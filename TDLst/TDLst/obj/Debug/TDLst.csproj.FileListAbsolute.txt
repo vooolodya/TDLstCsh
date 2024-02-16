@@ -115,8 +115,8 @@ D:\Programs\GitHub\TDLstCsh\TDLstCsh\TDLstCsh\TDLstCsh\TDLst\TDLst\obj\Debug\TDL
 D:\Programs\GitHub\TDLstCsh\TDLstCsh\TDLstCsh\TDLstCsh\TDLst\TDLst\obj\Debug\TDLst.Properties.Resources.resources
 D:\Programs\GitHub\TDLstCsh\TDLstCsh\TDLstCsh\TDLstCsh\TDLst\TDLst\obj\Debug\TDLst.csproj.GenerateResource.cache
 D:\Programs\GitHub\TDLstCsh\TDLstCsh\TDLstCsh\TDLstCsh\TDLst\TDLst\obj\Debug\TDLst.csproj.CoreCompileInputs.cache
-D:\Programs\GitHub\TDLstCsh\TDLstCsh\TDLstCsh\TDLstCsh\TDLst\TDLst\obj\Debug\TDLst.csproj.CopyComplete
 D:\Programs\GitHub\TDLstCsh\TDLstCsh\TDLstCsh\TDLstCsh\TDLst\TDLst\obj\Debug\TDLst.exe
 D:\Programs\GitHub\TDLstCsh\TDLstCsh\TDLstCsh\TDLstCsh\TDLst\TDLst\obj\Debug\TDLst.pdb
 D:\Programs\GitHub\TDLstCsh\TDLstCsh\TDLstCsh\TDLstCsh\TDLst\TDLst\bin\Debug\TaskManagerDB.mdf
 D:\Programs\GitHub\TDLstCsh\TDLstCsh\TDLstCsh\TDLstCsh\TDLst\TDLst\bin\Debug\TaskManagerDB_log.ldf
+D:\Programs\GitHub\TDLstCsh\TDLstCsh\TDLstCsh\TDLstCsh\TDLst\TDLst\obj\Debug\TDLst.csproj.Up2Date

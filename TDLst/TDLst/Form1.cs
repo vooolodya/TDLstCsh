@@ -3,8 +3,7 @@ using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.Configuration;
 using System.Data;
-using System.Linq;
-using ServiceStack;
+using System.Drawing;
 
 
 namespace TDLst
@@ -13,8 +12,7 @@ namespace TDLst
     {
         private readonly string connectionString = ConfigurationManager.ConnectionStrings["TDLstDataBase"].ConnectionString;
         private int AuthorizedUserId = 1;
-        private int Lists = 1;
-        private int SelectedIDTaskList = 0;
+        private string SelectedIDTaskList = "0";
 
         public Form1()
         {
@@ -126,12 +124,25 @@ namespace TDLst
 
             ListsGridView.Rows.Add(GetMaxID("SELECT MAX(ID) FROM TaskList") + 1, NewTaskListNameField.Text);
             NewTaskListNameField.Clear();
+
+            DataGridViewCellEventArgs eventArgs = new DataGridViewCellEventArgs(1, ListsGridView.RowCount - 1);
+            ListsGridView_CellContentClick(NewTaskButton, eventArgs);
+
+            ListsGridView.ClearSelection();
+            TasksGridView.ClearSelection();
         }
 
         private void NewTaskButton_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(NewTaskNameField.Text))
             {
+                return;
+            }
+
+            if (SelectedIDTaskList == "0")
+            {
+                MessageBox.Show("Выберите список, прежде чем добавить задание!", "Внимание!");
+
                 return;
             }
 
@@ -171,10 +182,10 @@ namespace TDLst
 
             DataGridViewRow row = ListsGridView.Rows[e.RowIndex];
             object value = row.Cells[0].Value;
-            string idTaskList = value.ToString();
+            SelectedIDTaskList = value.ToString();
 
             string command = "SELECT Name, IsCompleted, IsImportant FROM Task WHERE TasklistID = @idTasklist";
-            SqlParameter[] parameters = { new SqlParameter("@idTasklist", SqlDbType.Int) { Value = idTaskList } };
+            SqlParameter[] parameters = { new SqlParameter("@idTasklist", SqlDbType.Int) { Value = SelectedIDTaskList } };
 
             DataTable dataTable = ExecuteQueryWithSQLParameters(command, parameters);
 
@@ -184,9 +195,63 @@ namespace TDLst
             }
 
             NameListDisplay.Text = ListsGridView.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString();
-
-            int.TryParse(ListsGridView.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString(), out Lists);
         }
 
+        private void TasksGridView_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
+        {
+            if (e.ColumnIndex == isImportantTask.Index && e.RowIndex >= 0)
+            {
+                // Отрисовываем фон ячейки
+                e.PaintBackground(e.ClipBounds, true);
+
+                // Рисуем пользовательский чекбокс
+                Rectangle checkBoxRect = e.CellBounds;
+                checkBoxRect.X += 2;
+                checkBoxRect.Y += 2;
+                checkBoxRect.Width = 16;
+                checkBoxRect.Height = 16;
+
+                // Загружаем изображения для невыбранного и выбранного состояний
+                Image uncheckedImage = Image.FromFile("Sources\\Vector11.png");
+                Image checkedImage = Image.FromFile("Sources\\Vector12.png");
+
+                // Получаем значение ячейки
+                bool isChecked = (bool)e.FormattedValue;
+
+                // Отрисовываем соответствующее изображение
+                e.Graphics.DrawImage(isChecked ? checkedImage : uncheckedImage, checkBoxRect);
+
+                // Отрисовываем границу ячейки
+                e.Paint(e.ClipBounds, DataGridViewPaintParts.Border);
+
+                // Прекращаем обработку события, чтобы не перерисовывать стандартный чекбокс
+                e.Handled = true;
+
+
+                //TasksGridView.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.;
+            }
+        }
+
+        private void TasksGridView_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            // Проверяем, что измененный столбец является столбцом IsImportant
+            if (TasksGridView.Columns[e.ColumnIndex] == isImportantTask && e.RowIndex >= 0)
+            {
+                // Получаем новое значение чекбокса
+                bool isImportant = (bool)TasksGridView.Rows[e.RowIndex].Cells[e.ColumnIndex].Value;
+
+                // Получаем ID задачи, которому соответствует измененная ячейка
+                int taskId = (int)TasksGridView.Rows[e.RowIndex].Cells["TaskID"].Value;
+
+                // Обновляем запись в базе данных
+                string commandText = "UPDATE Task SET IsImportant = @IsImportant WHERE ID = @TaskID";
+                SqlParameter[] parameters = new SqlParameter[]
+                {
+                    new SqlParameter("@IsImportant", SqlDbType.Bit) { Value = isImportant },
+                    new SqlParameter("@TaskID", SqlDbType.Int) { Value = taskId }
+                };
+                ExecuteQueryWithSQLParameters(commandText, parameters);
+            }
+        }
     }
 }
