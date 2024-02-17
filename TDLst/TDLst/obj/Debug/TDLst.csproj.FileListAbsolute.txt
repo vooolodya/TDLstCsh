@@ -33,7 +33,6 @@ C:\Users\Vooolodya\Documents\GitHub\TDLstCsh\TDLst\TDLst\obj\Debug\TDLst.Form1.r
 C:\Users\Vooolodya\Documents\GitHub\TDLstCsh\TDLst\TDLst\obj\Debug\TDLst.Properties.Resources.resources
 C:\Users\Vooolodya\Documents\GitHub\TDLstCsh\TDLst\TDLst\obj\Debug\TDLst.csproj.GenerateResource.cache
 C:\Users\Vooolodya\Documents\GitHub\TDLstCsh\TDLst\TDLst\obj\Debug\TDLst.csproj.CoreCompileInputs.cache
-C:\Users\Vooolodya\Documents\GitHub\TDLstCsh\TDLst\TDLst\obj\Debug\TDLst.csproj.CopyComplete
 C:\Users\Vooolodya\Documents\GitHub\TDLstCsh\TDLst\TDLst\obj\Debug\TDLst.exe
 C:\Users\Vooolodya\Documents\GitHub\TDLstCsh\TDLst\TDLst\obj\Debug\TDLst.pdb
 D:\Programs\GitHub\TDLstCsh\TDLst\TDLst\bin\Debug\x86\sqlite3.dll
@@ -122,3 +121,4 @@ D:\Programs\GitHub\TDLstCsh\TDLstCsh\TDLstCsh\TDLstCsh\TDLst\TDLst\bin\Debug\Tas
 D:\Programs\GitHub\TDLstCsh\TDLstCsh\TDLstCsh\TDLstCsh\TDLst\TDLst\obj\Debug\TDLst.csproj.Up2Date
 C:\Users\Vooolodya\Documents\GitHub\TDLstCsh\TDLst\TDLst\bin\Debug\TaskManagerDB.mdf
 C:\Users\Vooolodya\Documents\GitHub\TDLstCsh\TDLst\TDLst\bin\Debug\TaskManagerDB_log.ldf
+C:\Users\Vooolodya\Documents\GitHub\TDLstCsh\TDLst\TDLst\obj\Debug\TDLst.csproj.Up2Date

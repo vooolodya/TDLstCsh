@@ -149,6 +149,7 @@
     <None Include="bin\Debug\Sources\Vector12.png" />
     <None Include="bin\Debug\Sources\notDone.png" />
     <None Include="bin\Debug\Sources\Done.png" />
+    <None Include="bin\Debug\Sources\DeleteButton.png" />
     <Content Include="TaskManagerDB.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

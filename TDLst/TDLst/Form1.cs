@@ -22,7 +22,7 @@ namespace TDLst
         private void Form1_Load(object sender, EventArgs e)
         {
             DownloadUserData();
-            DownloadTaskData();
+            DownloadListData();
         }
 
         private void DownloadUserData()
@@ -39,7 +39,7 @@ namespace TDLst
             }
         }
 
-        private void DownloadTaskData()
+        private void DownloadListData()
         {
             string command = "SELECT ID, Name FROM Tasklist WHERE UserID = @idAutorithUser";
             SqlParameter[] parameters = { new SqlParameter("@idAutorithUser", SqlDbType.Int) { Value = AuthorizedUserId } };
@@ -164,7 +164,7 @@ namespace TDLst
                 }
             }
 
-            TasksGridView.Rows.Add(GetMaxID("SELECT MAX(ID) FROM Task") + 1, false, NewTaskNameField.Text, false);
+            TasksGridView.Rows.Add(GetMaxID("SELECT MAX(ID) FROM Task") + 1, false, false, "", NewTaskNameField.Text);
             NewTaskNameField.Clear();
         }
 
@@ -191,7 +191,7 @@ namespace TDLst
 
             foreach (DataRow rows in dataTable.Rows)
             {
-                TasksGridView.Rows.Add(rows["ID"], rows["IsCompleted"], rows["Name"], rows["IsImportant"]);
+                TasksGridView.Rows.Add(rows["ID"], rows["IsCompleted"], rows["IsImportant"], "", rows["Name"]);
             }
 
             Image image11 = new Bitmap("Sources\\Vector11.png");
@@ -266,7 +266,6 @@ namespace TDLst
                 TasksGridView.ClearSelection();
             }
 
-
             if (e.ColumnIndex == TaskStatePicture.Index && e.RowIndex >= 0)
             {
 
@@ -299,6 +298,23 @@ namespace TDLst
                 };
                 ExecuteQueryWithSQLParameters(commandText, parameters);
 
+                TasksGridView.ClearSelection();
+            }
+
+            if (e.ColumnIndex == DeleteButton.Index && e.RowIndex >= 0)
+            {
+                // Получаем ID задачи, которому соответствует измененная ячейка
+                int taskId = (int)TasksGridView.Rows[e.RowIndex].Cells["ID"].Value;
+
+                // Обновляем запись в базе данных
+                string commandText = "Delete FROM Task WHERE ID = @TaskID";
+                SqlParameter[] parameters = new SqlParameter[]
+                {
+                    new SqlParameter("@TaskID", SqlDbType.Int) { Value = taskId }
+                };
+                ExecuteQueryWithSQLParameters(commandText, parameters);
+
+                TasksGridView.Rows.RemoveAt(e.RowIndex);
                 TasksGridView.ClearSelection();
             }
         }

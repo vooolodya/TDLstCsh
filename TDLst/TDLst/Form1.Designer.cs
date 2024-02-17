@@ -28,16 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
             this.SearchField = new System.Windows.Forms.TextBox();
             this.SearchButton = new System.Windows.Forms.Button();
             this.NickNameDisplay = new System.Windows.Forms.Label();
@@ -54,11 +54,15 @@
             this.NewTaskButton = new System.Windows.Forms.Label();
             this.NameListDisplay = new System.Windows.Forms.Label();
             this.MainPanel = new System.Windows.Forms.Panel();
+            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.dataGridViewImageColumn3 = new System.Windows.Forms.DataGridViewImageColumn();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CheckTaskStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TaskText = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.isImportantTask = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TaskStatePicture = new System.Windows.Forms.DataGridViewImageColumn();
+            this.TaskText = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DeleteButton = new System.Windows.Forms.DataGridViewImageColumn();
             this.IsImportantPicture = new System.Windows.Forms.DataGridViewImageColumn();
             ((System.ComponentModel.ISupportInitialize)(this.ListsGridView)).BeginInit();
             this.MenuPanel.SuspendLayout();
@@ -71,16 +75,16 @@
             this.SearchField.BackColor = System.Drawing.Color.PaleTurquoise;
             this.SearchField.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.SearchField.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.SearchField.Location = new System.Drawing.Point(33, 116);
+            this.SearchField.Location = new System.Drawing.Point(44, 116);
             this.SearchField.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.SearchField.Name = "SearchField";
-            this.SearchField.Size = new System.Drawing.Size(311, 34);
+            this.SearchField.Size = new System.Drawing.Size(288, 34);
             this.SearchField.TabIndex = 0;
             // 
             // SearchButton
             // 
             this.SearchButton.BackColor = System.Drawing.Color.PaleTurquoise;
-            this.SearchButton.Location = new System.Drawing.Point(350, 116);
+            this.SearchButton.Location = new System.Drawing.Point(338, 116);
             this.SearchButton.Name = "SearchButton";
             this.SearchButton.Size = new System.Drawing.Size(34, 34);
             this.SearchButton.TabIndex = 1;
@@ -92,7 +96,7 @@
             this.NickNameDisplay.AutoSize = true;
             this.NickNameDisplay.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.NickNameDisplay.ForeColor = System.Drawing.Color.PaleTurquoise;
-            this.NickNameDisplay.Location = new System.Drawing.Point(26, 21);
+            this.NickNameDisplay.Location = new System.Drawing.Point(26, 23);
             this.NickNameDisplay.Name = "NickNameDisplay";
             this.NickNameDisplay.Size = new System.Drawing.Size(226, 29);
             this.NickNameDisplay.TabIndex = 2;
@@ -116,10 +120,10 @@
             this.NewTaskListNameField.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.NewTaskListNameField.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.NewTaskListNameField.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.NewTaskListNameField.Location = new System.Drawing.Point(33, 672);
+            this.NewTaskListNameField.Location = new System.Drawing.Point(44, 672);
             this.NewTaskListNameField.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.NewTaskListNameField.Name = "NewTaskListNameField";
-            this.NewTaskListNameField.Size = new System.Drawing.Size(351, 34);
+            this.NewTaskListNameField.Size = new System.Drawing.Size(328, 34);
             this.NewTaskListNameField.TabIndex = 5;
             // 
             // ListTaskButton
@@ -141,58 +145,58 @@
             this.ListsGridView.AllowUserToDeleteRows = false;
             this.ListsGridView.AllowUserToResizeColumns = false;
             this.ListsGridView.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.ListsGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.ListsGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle11;
             this.ListsGridView.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.ListsGridView.BackgroundColor = System.Drawing.Color.CadetBlue;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.ListsGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.ListsGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle12;
             this.ListsGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.ListsGridView.ColumnHeadersVisible = false;
             this.ListsGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.IDTaskList,
             this.NameTasklist});
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.ListsGridView.DefaultCellStyle = dataGridViewCellStyle5;
-            this.ListsGridView.Location = new System.Drawing.Point(31, 181);
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle15.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle15.ForeColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.ListsGridView.DefaultCellStyle = dataGridViewCellStyle15;
+            this.ListsGridView.Location = new System.Drawing.Point(44, 181);
             this.ListsGridView.Name = "ListsGridView";
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.ListsGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle16.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle16.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle16.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.ListsGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle16;
             this.ListsGridView.RowHeadersVisible = false;
             this.ListsGridView.RowHeadersWidth = 51;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.ListsGridView.RowsDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.ListsGridView.RowsDefaultCellStyle = dataGridViewCellStyle17;
             this.ListsGridView.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             this.ListsGridView.RowTemplate.Height = 32;
-            this.ListsGridView.Size = new System.Drawing.Size(353, 468);
+            this.ListsGridView.Size = new System.Drawing.Size(328, 468);
             this.ListsGridView.TabIndex = 0;
             this.ListsGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ListsGridView_CellContentClick);
             // 
             // IDTaskList
             // 
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.CadetBlue;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.PaleTurquoise;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.DarkSlateGray;
-            this.IDTaskList.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle13.BackColor = System.Drawing.Color.CadetBlue;
+            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.Color.PaleTurquoise;
+            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.Color.DarkSlateGray;
+            this.IDTaskList.DefaultCellStyle = dataGridViewCellStyle13;
             this.IDTaskList.HeaderText = "";
             this.IDTaskList.MaxInputLength = 32;
             this.IDTaskList.MinimumWidth = 8;
@@ -203,10 +207,10 @@
             // NameTasklist
             // 
             this.NameTasklist.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.CadetBlue;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.PaleTurquoise;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.CadetBlue;
-            this.NameTasklist.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle14.BackColor = System.Drawing.Color.CadetBlue;
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.Color.PaleTurquoise;
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.Color.CadetBlue;
+            this.NameTasklist.DefaultCellStyle = dataGridViewCellStyle14;
             this.NameTasklist.HeaderText = "";
             this.NameTasklist.MaxInputLength = 50;
             this.NameTasklist.MinimumWidth = 8;
@@ -239,7 +243,7 @@
             this.NewTaskListButton.BackColor = System.Drawing.Color.PaleTurquoise;
             this.NewTaskListButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.NewTaskListButton.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.NewTaskListButton.Location = new System.Drawing.Point(345, 675);
+            this.NewTaskListButton.Location = new System.Drawing.Point(333, 674);
             this.NewTaskListButton.Name = "NewTaskListButton";
             this.NewTaskListButton.Size = new System.Drawing.Size(27, 29);
             this.NewTaskListButton.TabIndex = 8;
@@ -264,29 +268,30 @@
             this.TasksGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ID,
             this.CheckTaskStatus,
-            this.TaskText,
             this.isImportantTask,
             this.TaskStatePicture,
+            this.TaskText,
+            this.DeleteButton,
             this.IsImportantPicture});
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.TasksGridView.DefaultCellStyle = dataGridViewCellStyle9;
-            this.TasksGridView.Location = new System.Drawing.Point(49, 116);
+            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle19.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle19.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            dataGridViewCellStyle19.ForeColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle19.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle19.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.TasksGridView.DefaultCellStyle = dataGridViewCellStyle19;
+            this.TasksGridView.Location = new System.Drawing.Point(61, 116);
             this.TasksGridView.Name = "TasksGridView";
             this.TasksGridView.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.TasksGridView.RowHeadersVisible = false;
             this.TasksGridView.RowHeadersWidth = 51;
-            dataGridViewCellStyle10.BackColor = System.Drawing.Color.CadetBlue;
-            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.DarkSlateGray;
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.TasksGridView.RowsDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle20.BackColor = System.Drawing.Color.CadetBlue;
+            dataGridViewCellStyle20.ForeColor = System.Drawing.Color.DarkSlateGray;
+            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.TasksGridView.RowsDefaultCellStyle = dataGridViewCellStyle20;
             this.TasksGridView.RowTemplate.Height = 24;
-            this.TasksGridView.Size = new System.Drawing.Size(892, 533);
+            this.TasksGridView.Size = new System.Drawing.Size(839, 533);
             this.TasksGridView.TabIndex = 0;
             this.TasksGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.TasksGridView_CellContentClick);
             // 
@@ -298,10 +303,10 @@
             this.NewTaskNameField.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.NewTaskNameField.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.NewTaskNameField.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.NewTaskNameField.Location = new System.Drawing.Point(39, 670);
+            this.NewTaskNameField.Location = new System.Drawing.Point(61, 670);
             this.NewTaskNameField.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.NewTaskNameField.Name = "NewTaskNameField";
-            this.NewTaskNameField.Size = new System.Drawing.Size(902, 34);
+            this.NewTaskNameField.Size = new System.Drawing.Size(839, 34);
             this.NewTaskNameField.TabIndex = 4;
             // 
             // NewTaskButton
@@ -311,7 +316,7 @@
             this.NewTaskButton.BackColor = System.Drawing.Color.PaleTurquoise;
             this.NewTaskButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.NewTaskButton.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.NewTaskButton.Location = new System.Drawing.Point(900, 672);
+            this.NewTaskButton.Location = new System.Drawing.Point(862, 672);
             this.NewTaskButton.Name = "NewTaskButton";
             this.NewTaskButton.Size = new System.Drawing.Size(27, 29);
             this.NewTaskButton.TabIndex = 7;
@@ -346,12 +351,39 @@
             this.MainPanel.Size = new System.Drawing.Size(974, 760);
             this.MainPanel.TabIndex = 1;
             // 
+            // dataGridViewImageColumn1
+            // 
+            this.dataGridViewImageColumn1.HeaderText = "TaskStatePicture";
+            this.dataGridViewImageColumn1.Image = global::TDLst.Properties.Resources.notDone;
+            this.dataGridViewImageColumn1.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.dataGridViewImageColumn1.MinimumWidth = 6;
+            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
+            this.dataGridViewImageColumn1.Width = 125;
+            // 
+            // dataGridViewImageColumn2
+            // 
+            this.dataGridViewImageColumn2.HeaderText = "DeleteButton";
+            this.dataGridViewImageColumn2.Image = global::TDLst.Properties.Resources.DeleteButton;
+            this.dataGridViewImageColumn2.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.dataGridViewImageColumn2.MinimumWidth = 6;
+            this.dataGridViewImageColumn2.Name = "dataGridViewImageColumn2";
+            this.dataGridViewImageColumn2.Width = 125;
+            // 
+            // dataGridViewImageColumn3
+            // 
+            this.dataGridViewImageColumn3.HeaderText = "IsImportantPicture";
+            this.dataGridViewImageColumn3.Image = global::TDLst.Properties.Resources.Vector11;
+            this.dataGridViewImageColumn3.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.dataGridViewImageColumn3.MinimumWidth = 6;
+            this.dataGridViewImageColumn3.Name = "dataGridViewImageColumn3";
+            this.dataGridViewImageColumn3.Width = 125;
+            // 
             // ID
             // 
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.CadetBlue;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.CadetBlue;
-            this.ID.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle18.BackColor = System.Drawing.Color.CadetBlue;
+            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.Color.CadetBlue;
+            this.ID.DefaultCellStyle = dataGridViewCellStyle18;
             this.ID.HeaderText = "ID";
             this.ID.MaxInputLength = 32;
             this.ID.MinimumWidth = 6;
@@ -371,15 +403,6 @@
             this.CheckTaskStatus.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.CheckTaskStatus.Visible = false;
             this.CheckTaskStatus.Width = 25;
-            // 
-            // TaskText
-            // 
-            this.TaskText.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.TaskText.FillWeight = 180.6483F;
-            this.TaskText.HeaderText = "Task";
-            this.TaskText.MaxInputLength = 32;
-            this.TaskText.MinimumWidth = 6;
-            this.TaskText.Name = "TaskText";
             // 
             // isImportantTask
             // 
@@ -402,6 +425,24 @@
             this.TaskStatePicture.Name = "TaskStatePicture";
             this.TaskStatePicture.Width = 125;
             // 
+            // TaskText
+            // 
+            this.TaskText.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.TaskText.FillWeight = 180.6483F;
+            this.TaskText.HeaderText = "Task";
+            this.TaskText.MaxInputLength = 32;
+            this.TaskText.MinimumWidth = 6;
+            this.TaskText.Name = "TaskText";
+            // 
+            // DeleteButton
+            // 
+            this.DeleteButton.HeaderText = "DeleteButton";
+            this.DeleteButton.Image = global::TDLst.Properties.Resources.DeleteButton;
+            this.DeleteButton.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.DeleteButton.MinimumWidth = 6;
+            this.DeleteButton.Name = "DeleteButton";
+            this.DeleteButton.Width = 30;
+            // 
             // IsImportantPicture
             // 
             this.IsImportantPicture.HeaderText = "IsImportantPicture";
@@ -409,7 +450,7 @@
             this.IsImportantPicture.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
             this.IsImportantPicture.MinimumWidth = 6;
             this.IsImportantPicture.Name = "IsImportantPicture";
-            this.IsImportantPicture.Width = 125;
+            this.IsImportantPicture.Width = 60;
             // 
             // Form1
             // 
@@ -454,10 +495,14 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn NameTasklist;
         private System.Windows.Forms.DataGridViewTextBoxColumn ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn CheckTaskStatus;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TaskText;
         private System.Windows.Forms.DataGridViewTextBoxColumn isImportantTask;
         private System.Windows.Forms.DataGridViewImageColumn TaskStatePicture;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TaskText;
+        private System.Windows.Forms.DataGridViewImageColumn DeleteButton;
         private System.Windows.Forms.DataGridViewImageColumn IsImportantPicture;
+        private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
+        private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn2;
+        private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn3;
     }
 }
 
