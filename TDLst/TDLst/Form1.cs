@@ -194,50 +194,62 @@ namespace TDLst
                 TasksGridView.Rows.Add(rows["ID"], rows["IsCompleted"], rows["Name"], rows["IsImportant"]);
             }
 
-            NameListDisplay.Text = ListsGridView.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString();
-        }
+            Image image11 = new Bitmap("Sources\\Vector11.png");
+            Image image12 = new Bitmap("Sources\\Vector12.png");
 
-        private void TasksGridView_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
-        {
-            if (e.ColumnIndex == isImportantTask.Index && e.RowIndex >= 0)
+            foreach (DataGridViewRow rows in TasksGridView.Rows)
             {
-                // Отрисовываем фон ячейки
-                e.PaintBackground(e.ClipBounds, true);
-
-                // Рисуем пользовательский чекбокс
-                Rectangle checkBoxRect = e.CellBounds;
-                checkBoxRect.X += 2;
-                checkBoxRect.Y += 2;
-                checkBoxRect.Width = 16;
-                checkBoxRect.Height = 16;
-
-                // Загружаем изображения для невыбранного и выбранного состояний
-                Image uncheckedImage = Image.FromFile("Sources\\Vector11.png");
-                Image checkedImage = Image.FromFile("Sources\\Vector12.png");
-
-                // Получаем значение ячейки
-                bool isChecked = (bool)e.FormattedValue;
-
-                // Отрисовываем соответствующее изображение
-                e.Graphics.DrawImage(isChecked ? checkedImage : uncheckedImage, checkBoxRect);
-
-                // Отрисовываем границу ячейки
-                e.Paint(e.ClipBounds, DataGridViewPaintParts.Border);
-
-                // Прекращаем обработку события, чтобы не перерисовывать стандартный чекбокс
-                e.Handled = true;
-                TasksGridView.ClearSelection();
-                //TasksGridView.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.;
+                if ((bool)rows.Cells["isImportantTask"].Value)
+                {
+                    TasksGridView.Rows[rows.Index].Cells["IsImportantPicture"].Value = image12;
+                }
+                else
+                {
+                    TasksGridView.Rows[rows.Index].Cells["IsImportantPicture"].Value = image11;
+                }
             }
+
+            Image Done = new Bitmap("Sources\\Done.png");
+            Image NotComplete = new Bitmap("Sources\\notDone.png");
+
+            foreach (DataGridViewRow rows in TasksGridView.Rows)
+            {
+                if ((bool)rows.Cells["CheckTaskStatus"].Value)
+                {
+                    TasksGridView.Rows[rows.Index].Cells["TaskStatePicture"].Value = Done;
+                }
+                else
+                {
+                    TasksGridView.Rows[rows.Index].Cells["TaskStatePicture"].Value = NotComplete;
+                }
+            }
+
+            NameListDisplay.Text = ListsGridView.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString();
+
+            TasksGridView.ClearSelection();
         }
 
-        private void TasksGridView_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        private void TasksGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            // Проверяем, что измененный столбец является столбцом IsImportant
-            if (TasksGridView.Columns[e.ColumnIndex] == isImportantTask && e.RowIndex >= 0)
+            if (e.ColumnIndex == IsImportantPicture.Index && e.RowIndex >= 0)
             {
+
+                TasksGridView.Rows[e.RowIndex].Cells[isImportantTask.Index].Value = !(bool)TasksGridView.Rows[e.RowIndex].Cells[isImportantTask.Index].Value;
+
+                Image NotImportant = new Bitmap("Sources\\Vector11.png");
+                Image Important = new Bitmap("Sources\\Vector12.png");
+
+                if ((bool)TasksGridView.Rows[e.RowIndex].Cells[isImportantTask.Index].Value)
+                {
+                    TasksGridView.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = Important;
+                }
+                else
+                {
+                    TasksGridView.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = NotImportant;
+                }
+
                 // Получаем новое значение чекбокса
-                bool isImportant = (bool)TasksGridView.Rows[e.RowIndex].Cells[e.ColumnIndex].Value;
+                bool isImportant = (bool)TasksGridView.Rows[e.RowIndex].Cells[isImportantTask.Index].Value;
 
                 // Получаем ID задачи, которому соответствует измененная ячейка
                 int taskId = (int)TasksGridView.Rows[e.RowIndex].Cells["ID"].Value;
@@ -250,10 +262,47 @@ namespace TDLst
                     new SqlParameter("@TaskID", SqlDbType.Int) { Value = taskId }
                 };
                 ExecuteQueryWithSQLParameters(commandText, parameters);
+
+                TasksGridView.ClearSelection();
             }
 
-            TasksGridView.CurrentCell = null;
+
+            if (e.ColumnIndex == TaskStatePicture.Index && e.RowIndex >= 0)
+            {
+
+                TasksGridView.Rows[e.RowIndex].Cells[CheckTaskStatus.Index].Value = !(bool)TasksGridView.Rows[e.RowIndex].Cells[CheckTaskStatus.Index].Value;
+
+                Image Done = new Bitmap("Sources\\Done.png");
+                Image NotComplete = new Bitmap("Sources\\notDone.png");
+
+                if ((bool)TasksGridView.Rows[e.RowIndex].Cells[CheckTaskStatus.Index].Value)
+                {
+                    TasksGridView.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = Done;
+                }
+                else
+                {
+                    TasksGridView.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = NotComplete;
+                }
+
+                // Получаем новое значение чекбокса
+                bool IsCompleted = (bool)TasksGridView.Rows[e.RowIndex].Cells[CheckTaskStatus.Index].Value;
+
+                // Получаем ID задачи, которому соответствует измененная ячейка
+                int taskId = (int)TasksGridView.Rows[e.RowIndex].Cells["ID"].Value;
+
+                // Обновляем запись в базе данных
+                string commandText = "UPDATE Task SET IsCompleted = @IsCompleted WHERE ID = @TaskID";
+                SqlParameter[] parameters = new SqlParameter[]
+                {
+                    new SqlParameter("@IsCompleted", SqlDbType.Bit) { Value = IsCompleted },
+                    new SqlParameter("@TaskID", SqlDbType.Int) { Value = taskId }
+                };
+                ExecuteQueryWithSQLParameters(commandText, parameters);
+
+                TasksGridView.ClearSelection();
+            }
         }
+
 
     }
 }

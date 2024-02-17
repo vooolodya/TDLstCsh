@@ -120,3 +120,5 @@ D:\Programs\GitHub\TDLstCsh\TDLstCsh\TDLstCsh\TDLstCsh\TDLst\TDLst\obj\Debug\TDL
 D:\Programs\GitHub\TDLstCsh\TDLstCsh\TDLstCsh\TDLstCsh\TDLst\TDLst\bin\Debug\TaskManagerDB.mdf
 D:\Programs\GitHub\TDLstCsh\TDLstCsh\TDLstCsh\TDLstCsh\TDLst\TDLst\bin\Debug\TaskManagerDB_log.ldf
 D:\Programs\GitHub\TDLstCsh\TDLstCsh\TDLstCsh\TDLstCsh\TDLst\TDLst\obj\Debug\TDLst.csproj.Up2Date
+C:\Users\Vooolodya\Documents\GitHub\TDLstCsh\TDLst\TDLst\bin\Debug\TaskManagerDB.mdf
+C:\Users\Vooolodya\Documents\GitHub\TDLstCsh\TDLst\TDLst\bin\Debug\TaskManagerDB_log.ldf
