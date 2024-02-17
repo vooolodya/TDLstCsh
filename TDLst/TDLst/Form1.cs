@@ -164,7 +164,7 @@ namespace TDLst
                 }
             }
 
-            TasksGridView.Rows.Add(false, NewTaskNameField.Text, false);
+            TasksGridView.Rows.Add(GetMaxID("SELECT MAX(ID) FROM Task") + 1, false, NewTaskNameField.Text, false);
             NewTaskNameField.Clear();
         }
 
@@ -184,14 +184,14 @@ namespace TDLst
             object value = row.Cells[0].Value;
             SelectedIDTaskList = value.ToString();
 
-            string command = "SELECT Name, IsCompleted, IsImportant FROM Task WHERE TasklistID = @idTasklist";
+            string command = "SELECT ID, Name, IsCompleted, IsImportant FROM Task WHERE TasklistID = @idTasklist";
             SqlParameter[] parameters = { new SqlParameter("@idTasklist", SqlDbType.Int) { Value = SelectedIDTaskList } };
 
             DataTable dataTable = ExecuteQueryWithSQLParameters(command, parameters);
 
             foreach (DataRow rows in dataTable.Rows)
             {
-                TasksGridView.Rows.Add(rows["IsCompleted"], rows["Name"], rows["IsImportant"]);
+                TasksGridView.Rows.Add(rows["ID"], rows["IsCompleted"], rows["Name"], rows["IsImportant"]);
             }
 
             NameListDisplay.Text = ListsGridView.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString();
@@ -226,8 +226,7 @@ namespace TDLst
 
                 // Прекращаем обработку события, чтобы не перерисовывать стандартный чекбокс
                 e.Handled = true;
-
-
+                TasksGridView.ClearSelection();
                 //TasksGridView.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.;
             }
         }
@@ -241,7 +240,7 @@ namespace TDLst
                 bool isImportant = (bool)TasksGridView.Rows[e.RowIndex].Cells[e.ColumnIndex].Value;
 
                 // Получаем ID задачи, которому соответствует измененная ячейка
-                int taskId = (int)TasksGridView.Rows[e.RowIndex].Cells["TaskID"].Value;
+                int taskId = (int)TasksGridView.Rows[e.RowIndex].Cells["ID"].Value;
 
                 // Обновляем запись в базе данных
                 string commandText = "UPDATE Task SET IsImportant = @IsImportant WHERE ID = @TaskID";
@@ -252,6 +251,9 @@ namespace TDLst
                 };
                 ExecuteQueryWithSQLParameters(commandText, parameters);
             }
+
+            TasksGridView.CurrentCell = null;
         }
+
     }
 }
