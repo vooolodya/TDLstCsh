@@ -4,6 +4,8 @@ using System.Data.SqlClient;
 using System.Configuration;
 using System.Data;
 using System.Drawing;
+using System.Collections.Generic;
+
 
 
 namespace TDLst
@@ -41,6 +43,8 @@ namespace TDLst
 
         private void DownloadListData()
         {
+            ListsGridView.Rows.Add(0, "Важно");
+
             string command = "SELECT ID, Name FROM Tasklist WHERE UserID = @idAutorithUser";
             SqlParameter[] parameters = { new SqlParameter("@idAutorithUser", SqlDbType.Int) { Value = AuthorizedUserId } };
 
@@ -49,6 +53,8 @@ namespace TDLst
             {
                 ListsGridView.Rows.Add(row["ID"], row["Name"]);
             }
+
+            ListsGridView.ClearSelection();
         }
 
         public DataTable ExecuteQueryWithSQLParameters(string commandText, SqlParameter[] parameters)
@@ -164,7 +170,9 @@ namespace TDLst
                 }
             }
 
-            TasksGridView.Rows.Add(GetMaxID("SELECT MAX(ID) FROM Task") + 1, false, false, "", NewTaskNameField.Text);
+            Image NotComplete = new Bitmap("Sources\\notDone.png");
+
+            TasksGridView.Rows.Add(GetMaxID("SELECT MAX(ID) FROM Task") + 1, false, false, NotComplete, NewTaskNameField.Text);
             NewTaskNameField.Clear();
         }
 
@@ -180,53 +188,100 @@ namespace TDLst
         {
             TasksGridView.Rows.Clear();
 
-            DataGridViewRow row = ListsGridView.Rows[e.RowIndex];
-            object value = row.Cells[0].Value;
-            SelectedIDTaskList = value.ToString();
-
-            string command = "SELECT ID, Name, IsCompleted, IsImportant FROM Task WHERE TasklistID = @idTasklist";
-            SqlParameter[] parameters = { new SqlParameter("@idTasklist", SqlDbType.Int) { Value = SelectedIDTaskList } };
-
-            DataTable dataTable = ExecuteQueryWithSQLParameters(command, parameters);
-
-            foreach (DataRow rows in dataTable.Rows)
+            if (e.ColumnIndex == NameTasklist.Index && e.RowIndex >= 0)
             {
-                TasksGridView.Rows.Add(rows["ID"], rows["IsCompleted"], rows["IsImportant"], "", rows["Name"]);
-            }
 
-            Image image11 = new Bitmap("Sources\\Vector11.png");
-            Image image12 = new Bitmap("Sources\\Vector12.png");
-
-            foreach (DataGridViewRow rows in TasksGridView.Rows)
-            {
-                if ((bool)rows.Cells["isImportantTask"].Value)
+                if (ListsGridView.Rows[e.RowIndex].Cells["IDTaskList"].Value.ToString() == "0")
                 {
-                    TasksGridView.Rows[rows.Index].Cells["IsImportantPicture"].Value = image12;
+                    List<int> lists = new List<int>();
+
+                    string CommandUser = "SELECT ID FROM TaskList WHERE UserID = @AuthorizedUserId";
+                    SqlParameter[] ParametersUser = { new SqlParameter("@AuthorizedUserId", SqlDbType.Int) { Value = AuthorizedUserId } };
+
+                    DataTable DataTableUser = ExecuteQueryWithSQLParameters(CommandUser, ParametersUser);
+
+                    foreach (DataRow rows in DataTableUser.Rows)
+                    {
+                        lists.Add((int)rows["ID"]);
+                    }
+
+                    foreach (int ListsID in lists)
+                    {
+                        string Command = "SELECT ID, Name, IsCompleted, IsImportant FROM Task WHERE IsImportant = 1 AND TasklistID = @idTasklist";
+                        SqlParameter[] Parameters = { new SqlParameter("@idTasklist", SqlDbType.Int) { Value = ListsID } };
+
+                        DataTable DataTable = ExecuteQueryWithSQLParameters(Command, Parameters);
+
+                        foreach (DataRow rows in DataTable.Rows)
+                        {
+                            TasksGridView.Rows.Add(rows["ID"], rows["IsCompleted"], rows["IsImportant"], "", rows["Name"]);
+                        }
+                    }
+
                 }
                 else
                 {
-                    TasksGridView.Rows[rows.Index].Cells["IsImportantPicture"].Value = image11;
+                    DataGridViewRow row = ListsGridView.Rows[e.RowIndex];
+                    object value = row.Cells[0].Value;
+                    SelectedIDTaskList = value.ToString();
+
+                    string command = "SELECT ID, Name, IsCompleted, IsImportant FROM Task WHERE TasklistID = @idTasklist";
+                    SqlParameter[] parameters = { new SqlParameter("@idTasklist", SqlDbType.Int) { Value = SelectedIDTaskList } };
+
+                    DataTable dataTable = ExecuteQueryWithSQLParameters(command, parameters);
+
+                    foreach (DataRow rows in dataTable.Rows)
+                    {
+                        TasksGridView.Rows.Add(rows["ID"], rows["IsCompleted"], rows["IsImportant"], "", rows["Name"]);
+                    }
                 }
+
+                Image NotImportant = new Bitmap("Sources\\!important.png");
+                Image Important = new Bitmap("Sources\\important.png");
+
+                foreach (DataGridViewRow rows in TasksGridView.Rows)
+                {
+                    if ((bool)rows.Cells["isImportantTask"].Value)
+                    {
+                        TasksGridView.Rows[rows.Index].Cells["IsImportantPicture"].Value = Important;
+                    }
+                    else
+                    {
+                        TasksGridView.Rows[rows.Index].Cells["IsImportantPicture"].Value = NotImportant;
+                    }
+                }
+
+                Image Done = new Bitmap("Sources\\Done.png");
+                Image NotComplete = new Bitmap("Sources\\notDone.png");
+
+                foreach (DataGridViewRow rows in TasksGridView.Rows)
+                {
+                    if ((bool)rows.Cells["CheckTaskStatus"].Value)
+                    {
+                        TasksGridView.Rows[rows.Index].Cells["TaskStatePicture"].Value = Done;
+                    }
+                    else
+                    {
+                        TasksGridView.Rows[rows.Index].Cells["TaskStatePicture"].Value = NotComplete;
+                    }
+                }
+
+                NameListDisplay.Text = ListsGridView.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString();
+
+                TasksGridView.ClearSelection();
             }
 
-            Image Done = new Bitmap("Sources\\Done.png");
-            Image NotComplete = new Bitmap("Sources\\notDone.png");
-
-            foreach (DataGridViewRow rows in TasksGridView.Rows)
+            if (e.ColumnIndex == DelList.Index && e.RowIndex >= 0)
             {
-                if ((bool)rows.Cells["CheckTaskStatus"].Value)
-                {
-                    TasksGridView.Rows[rows.Index].Cells["TaskStatePicture"].Value = Done;
-                }
-                else
-                {
-                    TasksGridView.Rows[rows.Index].Cells["TaskStatePicture"].Value = NotComplete;
-                }
+                string command = "DELETE FROM TaskList WHERE ID = @idTasklist";
+                SqlParameter[] parameters = { new SqlParameter("@idTasklist", SqlDbType.Int) { Value = SelectedIDTaskList } };
+
+                ExecuteQueryWithSQLParameters(command, parameters);
+
+                ListsGridView.Rows.RemoveAt(e.RowIndex);
+                ListsGridView.ClearSelection();
+                NameListDisplay.Text = "Task task task...";
             }
-
-            NameListDisplay.Text = ListsGridView.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString();
-
-            TasksGridView.ClearSelection();
         }
 
         private void TasksGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -236,8 +291,8 @@ namespace TDLst
 
                 TasksGridView.Rows[e.RowIndex].Cells[isImportantTask.Index].Value = !(bool)TasksGridView.Rows[e.RowIndex].Cells[isImportantTask.Index].Value;
 
-                Image NotImportant = new Bitmap("Sources\\Vector11.png");
-                Image Important = new Bitmap("Sources\\Vector12.png");
+                Image NotImportant = new Bitmap("Sources\\!important.png");
+                Image Important = new Bitmap("Sources\\important.png");
 
                 if ((bool)TasksGridView.Rows[e.RowIndex].Cells[isImportantTask.Index].Value)
                 {
@@ -262,7 +317,7 @@ namespace TDLst
                     new SqlParameter("@TaskID", SqlDbType.Int) { Value = taskId }
                 };
                 ExecuteQueryWithSQLParameters(commandText, parameters);
-
+                     
                 TasksGridView.ClearSelection();
             }
 
@@ -319,6 +374,18 @@ namespace TDLst
             }
         }
 
+        private void SearchField_Click(object sender, EventArgs e)
+        {
+            if (SearchField.Text == "Поиск")
+            {
+                SearchField.Clear();
+            }
 
+            if (SearchField.Text == string.Empty && !SearchField.Focused) 
+            {
+                SearchField.Clear();
+                SearchField.Text = "Поиск";
+            }
+        }
     }
 }

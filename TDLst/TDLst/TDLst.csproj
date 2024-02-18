@@ -145,11 +145,12 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="bin\Debug\Sources\Vector11.png" />
-    <None Include="bin\Debug\Sources\Vector12.png" />
     <None Include="bin\Debug\Sources\notDone.png" />
     <None Include="bin\Debug\Sources\Done.png" />
     <None Include="bin\Debug\Sources\DeleteButton.png" />
+    <None Include="bin\Debug\Sources\!important.png" />
+    <None Include="bin\Debug\Sources\important.png" />
+    <None Include="bin\Debug\Sources\lupa.png" />
     <Content Include="TaskManagerDB.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
