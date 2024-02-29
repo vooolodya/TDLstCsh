@@ -125,7 +125,7 @@ namespace TDLst
             SqlParameter[] parameters = new SqlParameter[]
             {
                 new SqlParameter("@idUser", SqlDbType.Int) { Value = AuthorizedUserId },
-                new SqlParameter("@NameTasklist", SqlDbType.VarChar) { Value = NewTaskListNameField.Text }
+                new SqlParameter("@NameTasklist", SqlDbType.NVarChar) { Value = NewTaskListNameField.Text }
             };
             ExecuteQueryWithSQLParameters(command, parameters);
 
@@ -153,8 +153,7 @@ namespace TDLst
                 return;
             }
 
-            string commandText = "INSERT INTO Task (TaskListID, Name, IsCompleted, IsImportant) VALUES (N@IdTasklist, N@Task, N@TaskState, N@Importance)";
-
+            string commandText = "INSERT INTO Task (TaskListID, Name, IsCompleted, IsImportant) VALUES (@IdTasklist, @Task, @TaskState, @Importance)";
 
             using (SqlConnection sqlConnection = new SqlConnection(connectionString))
             {
@@ -163,7 +162,7 @@ namespace TDLst
                 using (SqlCommand sqlCommand = new SqlCommand(commandText, sqlConnection))
                 {
                     sqlCommand.Parameters.Add("@IdTasklist", SqlDbType.Int).Value = SelectedIDTaskList;
-                    sqlCommand.Parameters.Add("@Task", SqlDbType.VarChar).Value = NewTaskNameField.Text;
+                    sqlCommand.Parameters.Add("@Task", SqlDbType.NVarChar).Value = NewTaskNameField.Text;
                     sqlCommand.Parameters.Add("@TaskState", SqlDbType.Int).Value = 0;
                     sqlCommand.Parameters.Add("@Importance", SqlDbType.Int).Value = 0;
 
