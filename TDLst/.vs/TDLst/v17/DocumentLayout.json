@@ -1,10 +1,10 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\Vooolodya\\Documents\\GitHub\\TDLstCsh\\TDLst\\",
+  "WorkspaceRootPath": "D:\\Programs\\GitHub\\TDLstCsh\\TDLstCsh\\TDLstCsh\\TDLstCsh\\TDLst\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{DC9772CB-9AC5-42F1-844A-D363C7E7A8AC}|TDLst\\TDLst.csproj|c:\\users\\vooolodya\\documents\\github\\tdlstcsh\\tdlst\\tdlst\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DC9772CB-9AC5-42F1-844A-D363C7E7A8AC}|TDLst\\TDLst.csproj|solutionrelative:tdlst\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{DC9772CB-9AC5-42F1-844A-D363C7E7A8AC}|TDLst\\TDLst.csproj|d:\\programs\\github\\tdlstcsh\\tdlstcsh\\tdlstcsh\\tdlstcsh\\tdlst\\tdlst\\workform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DC9772CB-9AC5-42F1-844A-D363C7E7A8AC}|TDLst\\TDLst.csproj|solutionrelative:tdlst\\workform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -19,14 +19,14 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Form1.cs",
-              "DocumentMoniker": "C:\\Users\\Vooolodya\\Documents\\GitHub\\TDLstCsh\\TDLst\\TDLst\\Form1.cs",
-              "RelativeDocumentMoniker": "TDLst\\Form1.cs",
-              "ToolTip": "C:\\Users\\Vooolodya\\Documents\\GitHub\\TDLstCsh\\TDLst\\TDLst\\Form1.cs",
-              "RelativeToolTip": "TDLst\\Form1.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Title": "WorkForm.cs",
+              "DocumentMoniker": "D:\\Programs\\GitHub\\TDLstCsh\\TDLstCsh\\TDLstCsh\\TDLstCsh\\TDLst\\TDLst\\WorkForm.cs",
+              "RelativeDocumentMoniker": "TDLst\\WorkForm.cs",
+              "ToolTip": "D:\\Programs\\GitHub\\TDLstCsh\\TDLstCsh\\TDLstCsh\\TDLstCsh\\TDLst\\TDLst\\WorkForm.cs*",
+              "RelativeToolTip": "TDLst\\WorkForm.cs*",
+              "ViewState": "AQIAAKIAAAAAAAAAAAASwJsAAABoAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-02-18T17:44:02.091Z",
+              "WhenOpened": "2024-02-26T09:26:37.037Z",
               "EditorCaption": ""
             }
           ]

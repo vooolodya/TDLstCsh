@@ -79,8 +79,6 @@ C:\Users\Vooolodya\Documents\GitHub\TDLstCsh\TDLst\TDLst\bin\Debug\TDLstBD.mdf
 C:\Users\Vooolodya\Documents\GitHub\TDLstCsh\TDLst\TDLst\bin\Debug\TDLstBD_log.ldf
 D:\Programs\GitHub\TDLstCsh\TDLstCsh\TDLstCsh\TDLstCsh\TDLst\TDLst\bin\Debug\x86\sqlite3.dll
 D:\Programs\GitHub\TDLstCsh\TDLstCsh\TDLstCsh\TDLstCsh\TDLst\TDLst\bin\Debug\x64\sqlite3.dll
-D:\Programs\GitHub\TDLstCsh\TDLstCsh\TDLstCsh\TDLstCsh\TDLst\TDLst\bin\Debug\TDLstBD.mdf
-D:\Programs\GitHub\TDLstCsh\TDLstCsh\TDLstCsh\TDLstCsh\TDLst\TDLst\bin\Debug\TDLstBD_log.ldf
 D:\Programs\GitHub\TDLstCsh\TDLstCsh\TDLstCsh\TDLstCsh\TDLst\TDLst\bin\Debug\TDLst.exe.config
 D:\Programs\GitHub\TDLstCsh\TDLstCsh\TDLstCsh\TDLstCsh\TDLst\TDLst\bin\Debug\TDLst.exe
 D:\Programs\GitHub\TDLstCsh\TDLstCsh\TDLstCsh\TDLstCsh\TDLst\TDLst\bin\Debug\TDLst.pdb
@@ -110,7 +108,6 @@ D:\Programs\GitHub\TDLstCsh\TDLstCsh\TDLstCsh\TDLstCsh\TDLst\TDLst\bin\Debug\Sys
 D:\Programs\GitHub\TDLstCsh\TDLstCsh\TDLstCsh\TDLstCsh\TDLst\TDLst\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
 D:\Programs\GitHub\TDLstCsh\TDLstCsh\TDLstCsh\TDLstCsh\TDLst\TDLst\bin\Debug\System.Threading.Tasks.Extensions.xml
 D:\Programs\GitHub\TDLstCsh\TDLstCsh\TDLstCsh\TDLstCsh\TDLst\TDLst\obj\Debug\TDLst.csproj.AssemblyReference.cache
-D:\Programs\GitHub\TDLstCsh\TDLstCsh\TDLstCsh\TDLstCsh\TDLst\TDLst\obj\Debug\TDLst.Form1.resources
 D:\Programs\GitHub\TDLstCsh\TDLstCsh\TDLstCsh\TDLstCsh\TDLst\TDLst\obj\Debug\TDLst.Properties.Resources.resources
 D:\Programs\GitHub\TDLstCsh\TDLstCsh\TDLstCsh\TDLstCsh\TDLst\TDLst\obj\Debug\TDLst.csproj.GenerateResource.cache
 D:\Programs\GitHub\TDLstCsh\TDLstCsh\TDLstCsh\TDLstCsh\TDLst\TDLst\obj\Debug\TDLst.csproj.CoreCompileInputs.cache
@@ -122,3 +119,5 @@ D:\Programs\GitHub\TDLstCsh\TDLstCsh\TDLstCsh\TDLstCsh\TDLst\TDLst\obj\Debug\TDL
 C:\Users\Vooolodya\Documents\GitHub\TDLstCsh\TDLst\TDLst\bin\Debug\TaskManagerDB.mdf
 C:\Users\Vooolodya\Documents\GitHub\TDLstCsh\TDLst\TDLst\bin\Debug\TaskManagerDB_log.ldf
 C:\Users\Vooolodya\Documents\GitHub\TDLstCsh\TDLst\TDLst\obj\Debug\TDLst.csproj.Up2Date
+D:\Programs\GitHub\TDLstCsh\TDLstCsh\TDLstCsh\TDLstCsh\TDLst\TDLst\obj\Debug\TDLst.WorkForm.resources
+D:\Programs\GitHub\TDLstCsh\TDLstCsh\TDLstCsh\TDLstCsh\TDLst\TDLst\obj\Debug\TDLst.LoginForm.resources
